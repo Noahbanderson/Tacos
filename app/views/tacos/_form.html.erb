@@ -1,0 +1,21 @@
+<h1><%= @taco.id ? "Edit Taco" : "New Taco" %></h1>
+
+
+<%= form_with(model: @taco, local: true) do |f| %>
+  <div class="row">
+    <div class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <%= f.text_field :name, required: true, autofocus: true, placeholder: "Name of Taco" %>
+        </div>
+        <div class="input-field col s6">
+          <%= f.number_field :value, required: true, placeholder: "How much is this taco worth?" %>
+        </div>
+      </div>
+      <%= f.submit class: "waves-effect waves-light btn" %>
+    </div>
+  </div>
+<% end %>
+
+<hr />
+<%= link_to 'Return to Tacos', tacos_path, class: "waves-effect waves-light btn" %>

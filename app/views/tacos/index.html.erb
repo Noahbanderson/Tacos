@@ -1,0 +1,24 @@
+<h3>Welcome, <%= current_user.first_name %>, to your own page of tacos!</h3>
+<hr />
+<br />
+<br />
+<h4>Your list of tacos!!!</h4>
+<ul>
+  <% @tacos.each do |taco| %>
+    <li><%= taco.name %> - $<%= taco.value %></li>
+    <%= link_to 'Edit Taco', edit_taco_path(taco), class: "waves-effect waves-light blue btn-small"  %>
+    <%= link_to 'Delete Taco', taco_path(taco), method: :delete, class: "waves-effect waves-light red btn-small"  %>
+
+  <% end %>
+</ul>
+<br />
+<br />
+<br />
+<%= link_to 'Add New Taco', new_taco_path, class: "waves-effect waves-light btn-small" %>
+<br />
+<br />
+<hr />
+
+<br />
+
+<%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "waves-effect waves-light btn-small" %>
